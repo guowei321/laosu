@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            background: pink;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 5px solid red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        video{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 200px;
+            height: 200px;
+        }
+        .box{
+            font-size: 20px;
+            font-family: "simsun";/*字体样式*/
+        }
+        
+    </style>
+</head>
+<body>
+
+
+    <div class="box">
+        <div class="box1"><video id="video" type="video/mp4" controls="controls" preload="true" src="./lss.mp4" type="video/mp4"></video></div>
+    </div>
+
+
+
+    <div class="boxtype">
+        <div id="box4" style="font-size: 90px; color: blue; font-family:simsun; display:grid;place-items:center"></div>
+    </div>
+
+    <div class="box5">
+        <button id="an"style="position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,1000%);"><a href="./index2.html">千万不要点吱吱吱</a></button>
+    </div>
+
+
+    <script>
+
+            //str填充内容，利用<作为换行符
+    let str="老干吱吱吱";
+    let strp="";
+    let i=0;
+    /*打字效果*/
+    function print1()
+    {
+        if(str[i]!='<')
+        {
+            strp+=str[i];
+            document.getElementById("box4").innerHTML=strp+'';
+             
+        }
+        else
+        {
+            document.getElementById("box4").innerHTML=strp+"<br><br>"+'|';
+            strp+="<br><br>";
+        }
+        i++;
+    }
+
+    /***setInterval函数控制打字速度*/
+    let printid=setInterval(() => {
+        print1();
+        if(i==str.length)
+        clearInterval(printid);
+    },888); 
+    </script>
+</body>
+</html>
